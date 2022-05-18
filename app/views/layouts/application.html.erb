@@ -6,6 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/2c3be2f810.js" crossorigin="anonymous"></script>
+    
+   
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -18,29 +21,29 @@
      
      <% if user_signed_in? %>
       <li>
-       "Home"
+       <i class="fa-solid fa-house"></i><%= link_to "Home",user_path(current_user.id) %>
       </li>
       <li>
-        "Users"
+        <i class="fa-solid fa-users"></i>"Users"
       </li>
       <li>
-        <%= link_to "Books",books_path %>
+        <i class="fa-solid fa-book-open"></i><%= link_to "Books",books_path %>
       </li>
       <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <i class="fa-solid fa-right-from-bracket"></i><%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </li>
      <% else %>
       <li>
-       "Home"
+       <i class="fa-solid fa-house"></i>"Home"
       </li>
       <li>
-        <%= link_to"About",about_path %>
+       <i class="fa-solid fa-link"></i> <%= link_to"About",about_path %>
       </li>
       <li>
-        <%= link_to"Sigh Up",new_user_registration_path %>
+        <i class="fa-solid fa-user-plus"></i><%= link_to"Sigh Up",new_user_registration_path %>
       </li>
        <li>
-        <%= link_to"Login",new_user_session_path %>
+        <i class="fa-solid fa-right-from-bracket"></i><%= link_to"Login",new_user_session_path %>
       </li>
      <% end %>
    </header>
