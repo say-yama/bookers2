@@ -1,17 +1,32 @@
-<%= render"list",user:@user %>
-<%= render"new",book:@book %>
+<div class="col-md-3">
+ <%= render"list",user:@user %>
+ <%= render"new",book:@book %>
+</div>
 
 
 <h2>Book detail</h2>
-
-<p><%= image_tag @book.user.get_profile_image(100,100) %></p>
-<p><%= @book.user.name %></p>
- <p><%= @book.title %></p>
- <p><%= @book.body %></p>
- 
- 
- <% if @book.user == current_user %>
-  <%= link_to"Edit",edit_book_path(@book.id) %>
-  <%= link_to"Delete",book_path(@book),method: :delete,"data-confirm" =>"本当に消しますか？？" %>
- <% end %>
+ <table class = "table">
+  <tbody>
+   <tr>
+    <td>
+     <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
+     <p><%= link_to @book.user.name,user_path(@user.id) %></p>
+    </td>
+    <td>
+      <p><%= link_to @book.title,book_path(@book.id)%></p>
+    </td>
+    <td>
+      <p><%= @book.body %></p>
+    </td>
+      <% if @book.user == current_user %>
+     <td>
+       <%= link_to"Edit",edit_book_path(@book.id),class:"btn btn-sm btn-success" %>
+     </td>
+     <td>
+       <%= link_to"Delete",book_path(@book),method: :delete,"data-confirm" =>"本当に消しますか？？",class:"btn btn-sm btn-danger" %>
+     </td>
+      <% end %>
+   </tr>
+  </tbody>  
+ </table>
  

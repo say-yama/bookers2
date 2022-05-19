@@ -3,13 +3,26 @@
 <%= render"books/new",book:@book %>
 
 <h2>Books</h2>
-
-<% @books.each do |book| %>
-<div>
-  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>Title：<%= book.title %></p>
-  <p>Opinion：<%= book.body %></p>
-
-</div>
-<% end %>
+ <table class = "table table-hover table-inverse">
+   <thead>
+     <tr>
+       <th></th>
+       <th>本のタイトル</th>
+       <th>感想</th>
+     </tr>
+   </thead>
+        <% @books.each do |book| %>
+   <tbody>
+     <tb>
+        <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+     </tb>
+     <tb>
+        <p><%=link_to book.title,book_path(book.id) %></p>
+     </tb>
+     <tb>
+        <p><%= book.body %></p>
+     </tb>
+   </tbody>
+        <% end %>
+ </table>
 

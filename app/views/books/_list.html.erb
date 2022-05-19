@@ -1,10 +1,24 @@
 
-<div>
+
  <h2>User info</h2>
   <%= image_tag user.get_profile_image(100,100) %>
-  <h3><%= user.name %></h3>
-  <h3>intro<%= user.introduction %></h3>
-  <p><i class="fa-solid fa-user-gear"></i><%= link_to"Edit",edit_user_path(user.id) %></p>
-</div>
+  <table class = "table">
+   <tbody>
+    <tr>
+     <th>name</th>
+     <th><%= user.name %></th>
+    </tr>
+    <tr>
+     <th>introducton</th>
+     <th><%= user.introduction %></th>
+    </tr>
+  </table>
+  
+    <div class ="btn-wrapper mx-auto">
+      <%= link_to edit_user_path(user.id), class:"btn btn-sm btn-block btn-outline-secondary", method: :get do %>
+       <i class="fa-solid fa-user-gear"></i>
+      <% end %>
+    </div>
+   </tbody>
 
 
