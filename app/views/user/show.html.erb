@@ -1,11 +1,5 @@
 
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <p><%= link_to"Edit",edit_user_path %></p>
-</div>
-
-
+<%= render"books/list",user:@user %>
 
 <h2>Books</h2>
 
