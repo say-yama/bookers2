@@ -47,8 +47,9 @@
                   <% end %>
                 </li>
                 <li class="nab-item">
-                 <%= link_to "Log out",destroy_user_session_path, method: :delete, class: 'nav-link text-light'%>
-                  <i class="fas fa-sign-out-alt"></i>
+                 <%= link_to destroy_user_session_path, class: 'nav-link text-light',method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i>Log out
+                 <% end %>
 
                 </li>
                <% else %>
@@ -81,13 +82,15 @@
    </header>
 
    <main>
-    <p>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    </p>
+        <p>
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+        </p>
 
+    
      <div class = "container px-5 px-sm-0 ">
+     
         <div class "d-flex p-2 bd-highlight">
           <div class = "row">
 

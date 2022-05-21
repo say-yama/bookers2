@@ -1,29 +1,35 @@
-<div class ="col-sm-12 col-md-8 col-mg-5 px-5 px-sm-0 mx-auto">
-  
 
-  <h1>Editing Book</h1>
+  <div class ="col-sm-12 col-md-8 col-mg-5 px-5 px-sm-0 mx-auto">
+    
   
-    <% if @book.errors.any? %>
-      <%= @book.errors.count %>件のerrorsが発生しました
-      <ul>
-        <% @book.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <h1>Editing Book</h1>
     
-    
-    <%= form_with model: @book do |f| %>
-    
-    
-      <label for ="Booktitle">Title</label><br>
-       <%= f.text_field :title %><br>
-      <label for= "Opinion">Opinion</label><br>
-       <%= f.text_area :body %><br>
-      <%= f.submit"Update Book",class:"btn btn-sm btn-success" %>
-    <% end %>
-
- 
-       <%= link_to "Show",book_path(@book.id) %>|
-       <%= link_to "Back",books_path %>
-</div>
+       <div id="error_explanation">
+             <% if @book.errors.any? %>
+              <%= @book.errors.count %>件のerrorsが発生しました
+              <ul>
+                <% @book.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+  
+      
+      <%= form_with model: @book do |f| %>
+      
+      <div class="formgroup">
+        <label for ="Booktitle">Title</label><br>
+         <%= f.text_field :title ,:class => "form-control"%><br>
+      </div>
+      <div class="formgroup">
+        <label for= "Opinion">Opinion</label><br>
+         <%= f.text_area :body ,:class => "form-control"%><br>
+        <%= f.submit"Update Book",class:"btn btn-sm btn-success" %>
+      <% end %>
+      </div>
+  
+   
+         <%= link_to "Show",book_path(@book.id) %>|
+         <%= link_to "Back",books_path %>
+  </div>
