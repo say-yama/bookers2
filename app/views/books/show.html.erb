@@ -1,12 +1,11 @@
-<div class "d-flex p-2 bd-highlight">
-  <div class="d-inline-flex p-2 bd-highlight">
-   <div class="col-md-3">
-    <%= render"list",user:@user %>
-    <%= render"new",book:@book %>
-   </div> 
- </div>
-  <div class="d-inline-flex p-2 bd-highlight">
-     <div class = "container">
+
+
+    <%= render"books/new",book:@book,user:@user %>
+
+ 
+ 
+
+     <div class = "col-md-8 offset-md-1">
     
      <h2>Book detail</h2>
       <table class = "table">
@@ -14,7 +13,7 @@
         <tr>
          <td>
           <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
-          <p><%= link_to @book.user.name,user_path(@user.id) %></p>
+          <p><%= link_to @book.user.name,user_path(@book.user_id) %></p>
          </td>
          <td>
            <p><%= link_to @book.title,book_path(@book.id)%></p>
@@ -27,12 +26,11 @@
             <%= link_to"Edit",edit_book_path(@book.id),class:"btn btn-sm btn-success" %>
           </td>
           <td>
-            <%= link_to"Delete",book_path(@book),method: :delete,"data-confirm" =>"本当に消しますか？？",class:"btn btn-sm btn-danger" %>
+            <%= link_to"Destroy",destroy_book_path(@book),method: :delete,"data-confirm" =>"本当に消しますか？？",class:"btn btn-sm btn-danger" %>
           </td>
            <% end %>
         </tr>
        </tbody>  
       </table>
     </div>
-   </div>
- </div>
+ 
