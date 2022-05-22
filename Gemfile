@@ -55,3 +55,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise"
+
+group :development, :test do
+  gem 'pry-rails'
+end
